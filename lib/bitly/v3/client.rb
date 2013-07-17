@@ -135,6 +135,7 @@ module Bitly
           raise BitlyTimeout.new("Bitly didn't respond in time", "504")
         end
 
+        response = JSON.parse(response.body)
         if response['status_code'] == 200
           return response
         else
